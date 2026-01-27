@@ -66,7 +66,7 @@ const plugin: ModulePlugin = {
   config: {
     name: "token",
     basePath: "/token",
-    requiredEnv: ["LINK_SECRET"],
+    requiredEnv: ["TOKEN_SECRET"],
     request: {
       jsonLimit: "2kb",
       urlencodedLimit: "2kb",
@@ -83,9 +83,9 @@ const plugin: ModulePlugin = {
     },
   },
   register(router, logger) {
-    const linkSecret = process.env.LINK_SECRET;
+    const linkSecret = process.env.TOKEN_SECRET;
     if (!linkSecret) {
-      throw new Error("LINK_SECRET is required");
+      throw new Error("TOKEN_SECRET is required");
     }
 
     router.get("/validate", (req: Request, res: Response) => {
