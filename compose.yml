@@ -1,0 +1,9 @@
+services:
+  pravatv_tokens:
+    image: "docker.klik.cc/pravatv_token:latest"
+    ports:
+      - "3000:3000"
+    environment:
+      # PORT: "3000"
+      # LOG_LEVEL: "info"
+      TOKEN_SECRET: "change_me"
