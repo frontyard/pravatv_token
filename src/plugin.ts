@@ -66,7 +66,6 @@ const plugin: ModulePlugin = {
   config: {
     name: "token",
     basePath: "/token",
-    requiredEnv: ["TOKEN_SECRET"],
     request: {
       jsonLimit: "2kb",
       urlencodedLimit: "2kb",
