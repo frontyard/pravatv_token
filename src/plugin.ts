@@ -65,27 +65,17 @@ function validateToken(
 const plugin: ModulePlugin = {
   config: {
     name: "token",
-    basePath: "/token",
-    request: {
-      jsonLimit: "2kb",
-      urlencodedLimit: "2kb",
-    },
-    response: {
-      maxBytes: 2048,
-    },
-    rateLimit: {
-      windowMs: 60 * 1000,
-      max: 10,
-      message: { error: "Too many requests, please try again later" },
-      standardHeaders: true,
-      legacyHeaders: false,
-    },
+    basePath: "/token"
   },
   register(router: Router, logger: any) {
     const linkSecret = process.env.TOKEN_SECRET;
     if (!linkSecret) {
       throw new Error("TOKEN_SECRET is required");
     }
+
+    router.options("/validate", (_req: Request, res: Response) => {
+      res.status(204).end();
+    });
 
     router.get("/validate", (req: Request, res: Response) => {
       try {
