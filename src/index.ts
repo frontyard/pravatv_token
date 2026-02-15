@@ -1,5 +1,5 @@
 // token-module/src/server.ts
-import { logger, createServer } from 'pravatv_services';
+import { createServer } from 'pravatv_scaffold';
 import plugin from './plugin.ts';
 
 createServer(plugin);

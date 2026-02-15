@@ -1,6 +1,6 @@
 import type { Request, Response, Router } from "express";
 import * as crypto from "crypto";
-import type { ModulePlugin } from "pravatv_services";
+import type { ModulePlugin } from "pravatv_scaffold";
 
 type TokenValidationResult = {
   isValid: boolean;
