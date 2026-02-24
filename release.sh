@@ -17,7 +17,7 @@ const major = Number(m[1]);
 const minor = Number(m[2]);
 const patch = Number(m[3]) + 1;
 pkg.version = `${major}.${minor}.${patch}`;
-fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
+fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 4) + "\n");
 '
 
 VERSION=$(node --input-type=module -e 'import fs from "node:fs"; const pkg = JSON.parse(fs.readFileSync("package.json","utf8")); process.stdout.write(String(pkg.version));')
@@ -30,7 +30,7 @@ git push
 LOCAL_IMAGE="${PROJECT_NAME}"
 REMOTE_IMAGE="docker.klik.cc/${PROJECT_NAME}"
 
-docker build --ssh default --pull --no-cache -t "${LOCAL_IMAGE}:${VERSION}" .
+DOCKER_BUILDKIT=1 docker build --ssh default --pull --no-cache -t "${LOCAL_IMAGE}:${VERSION}" .
 docker tag "${LOCAL_IMAGE}:${VERSION}" "${LOCAL_IMAGE}:latest"
 
 docker tag "${LOCAL_IMAGE}:${VERSION}" "${REMOTE_IMAGE}:${VERSION}"
