@@ -6,7 +6,7 @@
         "useIgnoreFile": true
     },
     "files": {
-        "ignore": ["dist"]
+        "ignore": [".history/**", "node_modules/**", "dist/**", ".prettierrc.json", ".prettierignore"]
     },
     "formatter": {
         "enabled": true,
