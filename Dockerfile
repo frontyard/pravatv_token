@@ -16,6 +16,4 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY tsconfig.json ./
 COPY src ./src
 
-EXPOSE 3000
-
 CMD ["npm", "start"]

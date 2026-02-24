@@ -21,13 +21,14 @@ fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
 '
 
 VERSION=$(node --input-type=module -e 'import fs from "node:fs"; const pkg = JSON.parse(fs.readFileSync("package.json","utf8")); process.stdout.write(String(pkg.version));')
+PROJECT_NAME=$(node --input-type=module -e 'import fs from "node:fs"; const pkg = JSON.parse(fs.readFileSync("package.json","utf8")); process.stdout.write(String(pkg.name));')
 
 git add package.json
 git commit -m "chore(release): bump version to ${VERSION}"
 git push
 
-LOCAL_IMAGE="pravatv_speed"
-REMOTE_IMAGE="docker.klik.cc/pravatv_speed"
+LOCAL_IMAGE="${PROJECT_NAME}"
+REMOTE_IMAGE="docker.klik.cc/${PROJECT_NAME}"
 
 docker build --pull --no-cache -t "${LOCAL_IMAGE}:${VERSION}" .
 docker tag "${LOCAL_IMAGE}:${VERSION}" "${LOCAL_IMAGE}:latest"
@@ -38,4 +39,4 @@ docker tag "${LOCAL_IMAGE}:${VERSION}" "${REMOTE_IMAGE}:latest"
 docker push "${REMOTE_IMAGE}:${VERSION}"
 docker push "${REMOTE_IMAGE}:latest"
 
-echo "Released pravatv_speed version ${VERSION}"
+echo "Released ${PROJECT_NAME} version ${VERSION}"
