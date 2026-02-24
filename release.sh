@@ -30,7 +30,7 @@ git push
 LOCAL_IMAGE="${PROJECT_NAME}"
 REMOTE_IMAGE="docker.klik.cc/${PROJECT_NAME}"
 
-docker build --pull --no-cache -t "${LOCAL_IMAGE}:${VERSION}" .
+docker build --ssh default --pull --no-cache -t "${LOCAL_IMAGE}:${VERSION}" .
 docker tag "${LOCAL_IMAGE}:${VERSION}" "${LOCAL_IMAGE}:latest"
 
 docker tag "${LOCAL_IMAGE}:${VERSION}" "${REMOTE_IMAGE}:${VERSION}"
