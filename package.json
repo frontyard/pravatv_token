@@ -1,23 +1,23 @@
 {
-    "name": "pravatv_token",
-    "version": "1.0.0",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "NODE_ENV=development tsx watch src/index.ts",
-        "start": "NODE_ENV=production tsx src/index.ts",
-        "lint": "biome lint .",
-        "format": "biome format --write .",
-        "check": "biome check ."
-    },
-    "dependencies": {
-        "pravatv_scaffold": "git+ssh://git@github.com:frontyard/pravatv_scaffold.git"
-    },
-    "devDependencies": {
-        "@types/node": "^25.0.3",
-        "@types/express": "^5.0.6",
-        "@biomejs/biome": "^1.9.4",
-        "tsx": "^4.21.0",
-        "typescript": "^5.9.3"
-    }
+  "name": "pravatv_token",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_ENV=development tsx watch src/index.ts",
+    "start": "NODE_ENV=production tsx src/index.ts",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check ."
+  },
+  "dependencies": {
+    "pravatv_scaffold": "git+ssh://git@github.com:frontyard/pravatv_scaffold.git"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@types/express": "^5.0.6",
+    "@biomejs/biome": "^1.9.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
 }
